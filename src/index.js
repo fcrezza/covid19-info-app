@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import {Button} from '@chakra-ui/core'
 
+import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
+  	<Button>hai</Button>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
