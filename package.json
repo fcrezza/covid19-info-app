@@ -6,15 +6,23 @@
     "@chakra-ui/core": "^0.7.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@fcrezza/prettier-config": "^1.0.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.19.2",
+    "dayjs": "^1.8.23",
     "emotion-theming": "^10.0.27",
+    "numeral": "^2.0.6",
+    "prettier": "^2.0.2",
     "react": "^16.13.1",
+    "react-country-flag": "^2.0.1",
     "react-dom": "^16.13.1",
+    "react-flags": "^0.1.18",
+    "react-flags-select": "^1.1.12",
     "react-icons": "^3.9.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "swr": "^0.2.0",
     "typeface-source-sans-pro": "^1.1.5"
   },
   "scripts": {
@@ -26,6 +34,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "prettier": "@fcrezza/prettier-config",
   "browserslist": {
     "production": [
       ">0.2%",

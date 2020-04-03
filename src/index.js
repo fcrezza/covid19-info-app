@@ -1,15 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import {Button} from '@chakra-ui/core'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { ColorModeProvider, CSSReset, ThemeProvider } from "@chakra-ui/core";
+import "typeface-source-sans-pro";
 
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from "./serviceWorker";
+import customTheme from "./customTheme";
+
 ReactDOM.render(
-  <React.StrictMode>
-  	<Button>hai</Button>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<ThemeProvider theme={customTheme}>
+			<ColorModeProvider>
+				<CSSReset />
+				<App />
+			</ColorModeProvider>
+		</ThemeProvider>
+	</React.StrictMode>,
+	document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
