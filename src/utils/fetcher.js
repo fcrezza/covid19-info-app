@@ -5,7 +5,9 @@ export const fetchData = (url) => {
 
 export const fetchNews = (url) => {
 	const data = fetch(url, {
-		'X-Api-Key': process.env.REACT_APP_NEWS_KEY,
+		headers: {
+			'X-Api-Key': process.env.REACT_APP_NEWS_KEY,
+		},
 	}).then((res) => res.json())
 	return data
 }

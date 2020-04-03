@@ -17,7 +17,7 @@ const Item = ({jumlah, text, color}) => {
 			p="6"
 			bg={bgColor[colorMode]}
 		>
-			<Heading size="xl" color={color}>
+			<Heading display="inline" size="xl" color={color}>
 				{numeral(jumlah).format('0,0')}
 			</Heading>
 			<Text
