@@ -1,6 +1,8 @@
 import React from 'react'
 import {Flex, Icon, IconButton, Code, useColorMode} from '@chakra-ui/core'
 import {FaMoon, FaRegSun} from 'react-icons/fa'
+import {Link} from 'react-router-dom'
+
 
 const Header = () => {
 	const {colorMode, toggleColorMode} = useColorMode()
@@ -9,13 +11,13 @@ const Header = () => {
 	const icons = {light: FaMoon, dark: FaRegSun}
 
 	return (
-		<Flex px={["4", "0"]} alignItems="center" justifyContent="space-between">
-			<Flex alignItems="center">
-				<Icon name="virus" color="pink.500" size="40px" />
+		<Flex alignItems="center" justifyContent="space-between">
+			<Flex as={Link} to="/" alignItems="center">
+				<Icon name="virus" color="pink.500" size={["35px","40px"]} />
 				<Code
 					ml="3"
 					color={textColor[colorMode]}
-					fontSize="xl"
+					fontSize={["lg","xl"]}
 					fontWeight="medium"
 					children="COVID-19 INFO"
 				/>
@@ -23,7 +25,7 @@ const Header = () => {
 
 			<IconButton
 				onClick={toggleColorMode}
-				size="lg"
+				size="md"
 				aria-label={buttonAria[colorMode]}
 				icon={icons[colorMode]}
 				isRound

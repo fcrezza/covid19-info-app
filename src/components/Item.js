@@ -10,18 +10,18 @@ const Item = ({jumlah, text, color}) => {
 	return (
 		<Flex
 			overflow="hidden"
-			width="170px"
-			height="120px"
+			width={["105px","170px"]}
+			height={["80px","120px"]}
 			flexDirection="column"
 			alignItems="center"
-			p="6"
+			p={["4","6"]}
 			bg={bgColor[colorMode]}
 		>
-			<Heading display="inline" size="xl" color={color}>
+			<Heading display="inline" fontSize={["23px", "30px"]} color={color}>
 				{numeral(jumlah).format('0,0')}
 			</Heading>
 			<Text
-				fontSize="md"
+				fontSize={["13px","md"]}
 				textTransform="uppercase"
 				color={textColor[colorMode]}
 				mt="1"

@@ -6,7 +6,7 @@ const Subtitle = ({children}) => {
 	const {colorMode} = useColorMode()
 
 	return (
-		<Text fontSize="lg" mt="2" color={textColor[colorMode]}>
+		<Text fontSize={["md","lg"]} mt="2" color={textColor[colorMode]}>
 			{children}
 		</Text>
 	)

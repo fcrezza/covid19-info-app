@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Box, Flex, Input, Grid, Text} from '@chakra-ui/core'
+import {Box, Flex, Input, Grid, Text, useColorMode} from '@chakra-ui/core'
 import {Link} from 'react-router-dom'
 import ReactCountryFlag from 'react-country-flag'
 
@@ -8,16 +8,31 @@ import Title from './Title'
 import Subtitle from './Subtitle'
 import Placeholder from './Placeholder'
 
-const CountryLink = ({to, countryCode, countryName}) => (
-	<Flex align="center" textAlign="left" bg="gray.50" p="2" as={Link} to={to}>
-		<ReactCountryFlag
-			countryCode={countryCode}
-			aria-label={`${countryName} flag`}
-			svg
-		/>
-		<Text ml="2">{countryName}</Text>
-	</Flex>
-)
+const CountryLink = ({to, countryCode, countryName}) => {
+	const {colorMode} = useColorMode()
+	const textColor = {light: 'gray.600', dark: 'gray.300'}
+	const bgColor = {light: 'green.50', dark: 'gray.700'}
+
+	return (
+		<Flex
+			align="center"
+			textAlign="left"
+			bg={bgColor[colorMode]}
+			p="2"
+			as={Link}
+			to={to}
+		>
+			<ReactCountryFlag
+				countryCode={countryCode}
+				aria-label={`${countryName} flag`}
+				svg
+			/>
+			<Text ml="2" color={textColor[colorMode]}>
+				{countryName}
+			</Text>
+		</Flex>
+	)
+}
 
 function Cari() {
 	const [country, setCountry] = useState('')

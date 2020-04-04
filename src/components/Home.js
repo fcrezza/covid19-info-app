@@ -20,23 +20,44 @@ const Home = () => {
 	]
 
 	return (
-		<Box mt="20" textAlign="center">
-				<Title>kasus global</Title>
-				{error ? (
-					<Subtitle>Tidak ada koneksi internet</Subtitle>
-				) : data ? (
-						<Subtitle>
-							Terakhir diperbarui {date} pada {time} WIB
-						</Subtitle>
-				) : <Placeholder width="300px" height="12px" customStyle={{mx: 'auto', mt: '2'}} />}
-			<Flex width="xl" mx="auto" mt="8" justify="space-between">
+		<Box
+			position="absolute"
+			top="45%"
+			left="50%"
+			transform="translate(-50%, -50%)"
+			textAlign="center"
+		>
+			<Title>kasus global</Title>
+			{error ? (
+				<Subtitle>Tidak ada koneksi internet</Subtitle>
+			) : data ? (
+				<Subtitle>
+					Terakhir diperbarui {date} pada {time} WIB
+				</Subtitle>
+			) : (
+				<Placeholder
+					width="300px"
+					height="12px"
+					customStyle={{mx: 'auto', mt: '2'}}
+				/>
+			)}
+			<Flex width={['sm', 'xl']} mx="auto" mt="8" px="4" justify="space-between">
 				{error ? null : data ? (
 					items.map((itemProps) => <Item key={itemProps.text} {...itemProps} />)
 				) : (
 					<>
-						<Placeholder />
-						<Placeholder />
-						<Placeholder />
+						<Placeholder
+							width={['105px', '170px']}
+							height={['80px', '120px']}
+						/>{' '}
+						<Placeholder
+							width={['105px', '170px']}
+							height={['80px', '120px']}
+						/>{' '}
+						<Placeholder
+							width={['105px', '170px']}
+							height={['80px', '120px']}
+						/>
 					</>
 				)}
 			</Flex>

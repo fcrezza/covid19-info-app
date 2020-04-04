@@ -14,28 +14,30 @@ import Footer from './components/Footer'
 const App = () => {
 	return (
 		<Router>
-			<Box width="100%" maxWidth="768px" minHeight="100vh" mx="auto" pt="8">
-				<Header />
-				<Switch>
-					<Route path="/" exact>
-						<Home />
-					</Route>
-					<Route path="/cari" exact>
-						<Cari />
-					</Route>
-					<Route path="/cari/:id">
-						<SpesificCountry />
-					</Route>
-					<Route path="/berita">
-						<News />
-					</Route>
-					<Route path="/info">
-						<Info />
-					</Route>
-					<Route>
-						<NotFound />
-					</Route>
-				</Switch>
+			<Box width="100%" position="relative" maxWidth="768px" minHeight="100vh" mx="auto" pt="8">
+				<Box px={{base: "4", lg: "0"}}>
+					<Header />
+					<Switch>
+						<Route path="/" exact>
+							<Home />
+						</Route>
+						<Route path="/cari" exact>
+							<Cari />
+						</Route>
+						<Route path="/cari/:id">
+							<SpesificCountry />
+						</Route>
+						<Route path="/berita">
+							<News />
+						</Route>
+						<Route path="/info">
+							<Info />
+						</Route>
+						<Route>
+							<NotFound />
+						</Route>
+					</Switch>
+				</Box>
 				<Footer />
 			</Box>
 		</Router>

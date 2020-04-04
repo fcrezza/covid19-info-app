@@ -32,15 +32,27 @@ const SpesificCounty = () => {
 			{text: 'sembuh', jumlah: recovered.value, color: 'green.500'},
 			{text: 'meninggal', jumlah: deaths.value, color: 'red.500'},
 		]
-		
+
 		return (
-			<Box mt="20" textAlign="center">
+			<Box
+				position="absolute"
+				top="45%"
+				left="50%"
+				transform="translate(-50%, -50%)"
+				textAlign="center"
+			>
 				<ReactCountryFlag countryCode={id} aria-label={`${name} flag`} />
 				<Title>{name}</Title>
 				<Subtitle>
 					Terakhir diperbarui {date} pada {time} WIB
 				</Subtitle>
-				<Flex width="xl" mx="auto" mt="8" justify="space-between">
+				<Flex
+					width={['sm', 'xl']}
+					px="4"
+					mx="auto"
+					mt="8"
+					justify="space-between"
+				>
 					{items.map((itemProps) => (
 						<Item key={itemProps.text} {...itemProps} />
 					))}
@@ -57,10 +69,15 @@ const SpesificCounty = () => {
 		)
 	} else {
 		return (
-			<Box mt="20">
+			<Box
+				position="absolute"
+				top="45%"
+				left="50%"
+				transform="translate(-50%, -50%)"
+			>
 				<Placeholder
-					width="50px"
-					height="50px"
+					width="25px"
+					height="25px"
 					customStyle={{mx: 'auto', mb: '2'}}
 				/>
 				<Placeholder width="150px" height="50px" customStyle={{mx: 'auto'}} />
@@ -69,10 +86,16 @@ const SpesificCounty = () => {
 					height="12px"
 					customStyle={{mx: 'auto', mt: '2'}}
 				/>
-				<Flex width="xl" mx="auto" mt="8" justify="space-between">
-					<Placeholder />
-					<Placeholder />
-					<Placeholder />
+				<Flex
+					width={['sm', 'xl']}
+					px="4"
+					mx="auto"
+					mt="8"
+					justify="space-between"
+				>
+					<Placeholder width={['105px', '170px']} height={['80px', '120px']} />{' '}
+					<Placeholder width={['105px', '170px']} height={['80px', '120px']} />{' '}
+					<Placeholder width={['105px', '170px']} height={['80px', '120px']} />
 				</Flex>
 			</Box>
 		)
