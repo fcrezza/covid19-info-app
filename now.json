@@ -1,0 +1,7 @@
+{
+	"build": {
+		"env": {
+			"REACT_APP_NEWS_KEY": "@news-key"
+		}
+	}
+}
