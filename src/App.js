@@ -7,6 +7,8 @@ import Home from './components/Home'
 import Cari from './components/Cari'
 import SpesificCountry from './components/SpesificCountry'
 import News from './components/News'
+import Info from './components/Info'
+import NotFound from './components/NotFound'
 import Footer from './components/Footer'
 
 const App = () => {
@@ -28,10 +30,10 @@ const App = () => {
 						<News />
 					</Route>
 					<Route path="/info">
-						<Home />
+						<Info />
 					</Route>
 					<Route>
-						<Home />
+						<NotFound />
 					</Route>
 				</Switch>
 				<Footer />
