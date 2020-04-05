@@ -38,7 +38,7 @@ const Info = () => {
 				</List>
 				repositori dari aplikasi ini dapat ditemukan di github melalui link
 				berikut:{' '}
-				<Link href="" color="pink.500">
+				<Link href="https://github.com/fcrezza/covid19-info-app" color="pink.500">
 					repositori covid-19 info
 				</Link>
 			</Subtitle>
