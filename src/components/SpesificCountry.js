@@ -2,7 +2,7 @@ import React from 'react'
 import dayjs from 'dayjs'
 import {useParams} from 'react-router-dom'
 import ReactCountryFlag from 'react-country-flag'
-import {Box, Flex, Text} from '@chakra-ui/core'
+import {Flex, Text, Grid} from '@chakra-ui/core'
 
 import {useGetData} from '../hooks/useFetchData'
 import Placeholder from './Placeholder'
@@ -34,46 +34,54 @@ const SpesificCounty = () => {
 		]
 
 		return (
-			<Box
-				position="absolute"
-				top="45%"
-				left="50%"
-				transform="translate(-50%, -50%)"
+			<Flex
+				flex="1"
+				alignItems="center"
+				direction="column"
+				justify="center"
 				textAlign="center"
+				mt="-20vh"
 			>
 				<ReactCountryFlag countryCode={id} aria-label={`${name} flag`} />
 				<Title>{name}</Title>
 				<Subtitle>
 					Terakhir diperbarui {date} pada {time} WIB
 				</Subtitle>
-				<Flex
-					width={['sm', 'xl']}
-					px="4"
+				<Grid
+					templateColumns="repeat(3, 1fr)"
+					gap={['3', '5']}
+					width={{base: '100%', md: 'xl'}}
 					mx="auto"
 					mt="8"
-					justify="space-between"
 				>
 					{items.map((itemProps) => (
 						<Item key={itemProps.text} {...itemProps} />
 					))}
-				</Flex>
-			</Box>
+				</Grid>
+			</Flex>
 		)
 	} else if (error) {
 		return (
-			<Box mt="20" textAlign="center">
-				<Text color="gray.700" fontSize="lg">
-					Tidak ada koneksi Internet
-				</Text>
-			</Box>
+			<Flex
+				flex="1"
+				alignItems="center"
+				direction="column"
+				justify="center"
+				textAlign="center"
+				mt="-20vh"
+			>
+				<Text fontSize="lg">Tidak ada koneksi Internet</Text>
+			</Flex>
 		)
 	} else {
 		return (
-			<Box
-				position="absolute"
-				top="45%"
-				left="50%"
-				transform="translate(-50%, -50%)"
+			<Flex
+				flex="1"
+				alignItems="center"
+				direction="column"
+				justify="center"
+				textAlign="center"
+				mt="-20vh"
 			>
 				<Placeholder
 					width="25px"
@@ -86,18 +94,18 @@ const SpesificCounty = () => {
 					height="12px"
 					customStyle={{mx: 'auto', mt: '2'}}
 				/>
-				<Flex
-					width={['sm', 'xl']}
-					px="4"
+				<Grid
+					templateColumns="repeat(3, 1fr)"
+					gap={['3', '5']}
+					width={{base: '100%', md: 'xl'}}
 					mx="auto"
 					mt="8"
-					justify="space-between"
 				>
-					<Placeholder width={['105px', '170px']} height={['80px', '120px']} />{' '}
-					<Placeholder width={['105px', '170px']} height={['80px', '120px']} />{' '}
-					<Placeholder width={['105px', '170px']} height={['80px', '120px']} />
-				</Flex>
-			</Box>
+					<Placeholder width="100%" height={['80px', '120px']} />{' '}
+					<Placeholder width="100%" height={['80px', '120px']} />{' '}
+					<Placeholder width="100%" height={['80px', '120px']} />
+				</Grid>
+			</Flex>
 		)
 	}
 }

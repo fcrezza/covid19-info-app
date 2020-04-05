@@ -13,7 +13,11 @@ const NewsItem = ({source, title, url, content}) => {
 	return (
 		<Box bg={bgColor[colorMode]} textAlign="left" p="6" rounded="md" mb="4">
 			<Text fontSize="sm">{source}</Text>
-			<Text fontSize={["2xl","3xl"]} fontWeight="700" color={textColor[colorMode]}>
+			<Text
+				fontSize={['2xl', '3xl']}
+				fontWeight="700"
+				color={textColor[colorMode]}
+			>
 				<Link href={url} isExternal>
 					{title}
 				</Link>
@@ -29,26 +33,36 @@ const News = () => {
 	const textColor = {light: 'gray.700', dark: 'gray.300'}
 
 	return (
-		<Box mt="16"   textAlign="center" mb="24">
+		<Box mt="16" textAlign={{base: "center", lg: 'left'}} mb="24">
 			<Title>update Covid-19</Title>
+			{error ? (
+				<Text
+					color={textColor[colorMode]}
+					mt="2"
+					fontSize="lg"
+					textAlign="center"
+				>
+					Tidak ada koneksi internet
+				</Text>
+			) : null}
 			<Box mt="10">
-				{data
-					? data.articles.map(({source, title, url, content}) => (
-							<NewsItem
-								key={title}
-								source={source.name}
-								title={title}
-								url={url}
-								content={content}
-							/>
-					  ))
-					: error
-					? <Text color={textColor[colorMode]} fontSize="lg" textAlign="center">Tidak ada koneksi internet</Text>
-					: <>
-					<Placeholder width="100%" height="180px" customStyle={{mb: '4'}} />
-					<Placeholder width="100%" height="180px" customStyle={{mb: '4'}} />
-					<Placeholder width="100%" height="180px" customStyle={{mb: '4'}} />
-				</>}
+				{data ? (
+					data.articles.map(({source, title, url, content}) => (
+						<NewsItem
+							key={title}
+							source={source.name}
+							title={title}
+							url={url}
+							content={content}
+						/>
+					))
+				) : !error ? (
+					<>
+						<Placeholder width="100%" height="180px" customStyle={{mb: '4'}} />
+						<Placeholder width="100%" height="180px" customStyle={{mb: '4'}} />
+						<Placeholder width="100%" height="180px" customStyle={{mb: '4'}} />
+					</>
+				) : null}
 			</Box>
 		</Box>
 	)

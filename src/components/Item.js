@@ -6,22 +6,23 @@ const Item = ({jumlah, text, color}) => {
 	const {colorMode} = useColorMode()
 	const textColor = {light: 'gray.600', dark: 'gray.300'}
 	const bgColor = {light: 'green.50', dark: 'gray.700'}
-	
+
 	return (
 		<Flex
-			overflow="hidden"
-			width={["105px","170px"]}
-			height={["80px","120px"]}
+			rounded="md"
+			overflow="auto"
+			height={['80px', '120px']}
 			flexDirection="column"
+			justify="center"
 			alignItems="center"
-			p={["4","6"]}
+			p={['2', '5']}
 			bg={bgColor[colorMode]}
 		>
-			<Heading display="inline" fontSize={["23px", "30px"]} color={color}>
+			<Heading fontSize={['22px', '30px']} color={color}>
 				{numeral(jumlah).format('0,0')}
 			</Heading>
 			<Text
-				fontSize={["13px","md"]}
+				fontSize={['13px', 'md']}
 				textTransform="uppercase"
 				color={textColor[colorMode]}
 				mt="1"

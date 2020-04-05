@@ -1,10 +1,21 @@
 import React from 'react'
-import {Box} from '@chakra-ui/core'
+import {Flex} from '@chakra-ui/core'
 
 import Title from './Title'
 
-const NotFound  = () => {
-	return <Box position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)"><Title>404 Not found</Title></Box>
+const NotFound = () => {
+	return (
+		<Flex
+			flex="1"
+			alignItems="center"
+			direction="column"
+			justify="center"
+			textAlign="center"
+			mt="-20vh"
+		>
+			<Title>404 Not found</Title>
+		</Flex>
+	)
 }
 
-export default NotFound 
+export default NotFound

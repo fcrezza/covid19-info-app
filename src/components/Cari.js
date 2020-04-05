@@ -21,6 +21,7 @@ const CountryLink = ({to, countryCode, countryName}) => {
 			p="2"
 			as={Link}
 			to={to}
+			rounded="md"
 		>
 			<ReactCountryFlag
 				countryCode={countryCode}
@@ -34,7 +35,7 @@ const CountryLink = ({to, countryCode, countryName}) => {
 	)
 }
 
-function Cari() {
+const Cari = ({handleToggleFooter}) => {
 	const [country, setCountry] = useState('')
 	const {data, error} = useGetData('countries')
 
@@ -61,9 +62,16 @@ function Cari() {
 				focusBorderColor="pink.300"
 				value={country}
 				onChange={handleChange}
+				onFocus={handleToggleFooter}
+				onBlur={handleToggleFooter}
 				placeholder="Cari negara..."
 				my="6"
 			/>
+			{error ? (
+				<Text gridColumn="1" color="gray.500" textAlign="center">
+					Tidak ada koneksi Internet
+				</Text>
+			) : null}
 			<Grid gap="4" templateColumns={['repeat(2, 1fr)', 'repeat(3, 1fr)']}>
 				{filteredCountries ? (
 					filteredCountries.map(({name, iso2}) => (
@@ -74,17 +82,13 @@ function Cari() {
 							to={(location) => `${location.pathname}/${iso2}`}
 						/>
 					))
-				) : error ? (
-					<Text gridColumn="2" color="gray.500" textAlign="center">
-						Tidak ada koneksi Internet
-					</Text>
-				) : (
+				) : !error ? (
 					<>
 						<Placeholder height="30px" width="100%" />
 						<Placeholder height="30px" width="100%" />
 						<Placeholder height="30px" width="100%" />
 					</>
-				)}
+				) : null}
 			</Grid>
 		</Box>
 	)

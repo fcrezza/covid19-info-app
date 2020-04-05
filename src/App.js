@@ -1,5 +1,5 @@
-import React from 'react'
-import {Box} from '@chakra-ui/core'
+import React, {useState} from 'react'
+import {Box, Flex} from '@chakra-ui/core'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import Header from './components/Header'
@@ -12,17 +12,27 @@ import NotFound from './components/NotFound'
 import Footer from './components/Footer'
 
 const App = () => {
+	const [toggleFooter, setToggleFooter] = useState(false)
+
+	const handleToggleFooter = () => {
+		setToggleFooter(prevState => !prevState)
+	}
+
 	return (
 		<Router>
-			<Box width="100%" position="relative" maxWidth="768px" minHeight="100vh" mx="auto" pt="8">
-				<Box px={{base: "4", lg: "0"}}>
+			<Box width="100%" maxWidth="768px" minHeight="100vh" mx="auto" pt="8">
+				<Flex
+					direction="column"
+					height={'calc(100vh - (32px+40px))'}
+					px={{base: '4', md: '6', lg: '0'}}
+				>
 					<Header />
 					<Switch>
 						<Route path="/" exact>
 							<Home />
 						</Route>
 						<Route path="/cari" exact>
-							<Cari />
+							<Cari handleToggleFooter={handleToggleFooter} />
 						</Route>
 						<Route path="/cari/:id">
 							<SpesificCountry />
@@ -37,8 +47,8 @@ const App = () => {
 							<NotFound />
 						</Route>
 					</Switch>
-				</Box>
-				<Footer />
+				</Flex>
+				<Footer toggleFooter={toggleFooter} />
 			</Box>
 		</Router>
 	)

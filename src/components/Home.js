@@ -1,6 +1,6 @@
 import React from 'react'
 import dayjs from 'dayjs'
-import {Box, Flex} from '@chakra-ui/core'
+import {Flex, Grid} from '@chakra-ui/core'
 
 import {useGetData} from '../hooks/useFetchData'
 import Item from './Item'
@@ -20,12 +20,13 @@ const Home = () => {
 	]
 
 	return (
-		<Box
-			position="absolute"
-			top="45%"
-			left="50%"
-			transform="translate(-50%, -50%)"
+		<Flex
+			flex="1"
+			alignItems="center"
+			direction="column"
+			justify="center"
 			textAlign="center"
+			mt="-20vh"
 		>
 			<Title>kasus global</Title>
 			{error ? (
@@ -41,27 +42,24 @@ const Home = () => {
 					customStyle={{mx: 'auto', mt: '2'}}
 				/>
 			)}
-			<Flex width={['sm', 'xl']} mx="auto" mt="8" px="4" justify="space-between">
+			<Grid
+				templateColumns="repeat(3, 1fr)"
+				gap={['3', '5']}
+				width={{base:'100%', md:'xl'}}
+				mx="auto"
+				mt="8"
+			>
 				{error ? null : data ? (
 					items.map((itemProps) => <Item key={itemProps.text} {...itemProps} />)
 				) : (
 					<>
-						<Placeholder
-							width={['105px', '170px']}
-							height={['80px', '120px']}
-						/>{' '}
-						<Placeholder
-							width={['105px', '170px']}
-							height={['80px', '120px']}
-						/>{' '}
-						<Placeholder
-							width={['105px', '170px']}
-							height={['80px', '120px']}
-						/>
+						<Placeholder width='100%' height={['80px', '120px']} />{' '}
+						<Placeholder width='100%' height={['80px', '120px']} />{' '}
+						<Placeholder width='100%' height={['80px', '120px']} />
 					</>
 				)}
-			</Flex>
-		</Box>
+			</Grid>
+		</Flex>
 	)
 }
 
