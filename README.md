@@ -12,6 +12,10 @@
 
 ### ✨ [Demo](https://covid19-info-app.now.sh/)
 
+#### All data from this project came from these source:
+1. [Covid-19-Api](https://github.com/mathdroid/covid-19-api) COVID-19 global data (from JHU CSSE for now) as-a-service
+2. [News Api](https://newsapi.org/) Search worldwide news with code
+
 ## Install
 
 ```sh
@@ -22,12 +26,6 @@ npm install
 
 ```sh
 npm run start
-```
-
-## Run tests
-
-```sh
-npm run test
 ```
 
 ## Author
