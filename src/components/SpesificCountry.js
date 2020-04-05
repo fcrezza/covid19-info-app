@@ -16,12 +16,18 @@ const SpesificCounty = () => {
 	const {data: countries, error: error2} = useGetData('countries')
 
 	const filteredCountry =
-		selectedCountry &&
-		countries &&
-		countries.countries.filter((ctry) => ctry.iso2 === id)
+		(selectedCountry &&
+			countries &&
+			countries.countries.filter((ctry) => ctry.iso2 === id)) ||
+		[]
+	const countryNotFound = selectedCountry
+		? selectedCountry.error
+			? true
+			: false
+		: false
 	const error = error1 || error2
 
-	if (filteredCountry) {
+	if (filteredCountry.length) {
 		const {name} = filteredCountry[0]
 		const {confirmed, recovered, deaths, lastUpdate} = selectedCountry
 		const date = dayjs(lastUpdate).format('DD MMM YYYY')
@@ -73,6 +79,17 @@ const SpesificCounty = () => {
 				<Text fontSize="lg">Tidak ada koneksi Internet</Text>
 			</Flex>
 		)
+	} else if (countryNotFound) {
+		return <Flex
+				flex="1"
+				alignItems="center"
+				direction="column"
+				justify="center"
+				textAlign="center"
+				mt="-20vh"
+			>
+				<Text fontSize="lg">Data yang anda cari tidak ditemukan</Text>
+			</Flex>
 	} else {
 		return (
 			<Flex
