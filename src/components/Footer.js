@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Grid, Text, useColorMode, PseudoBox} from '@chakra-ui/core'
+import {Box, Flex, Text, useColorMode, PseudoBox} from '@chakra-ui/core'
 import {NavLink} from 'react-router-dom'
 import {FaHome, FaSearch, FaInfoCircle, FaRegNewspaper} from 'react-icons/fa'
 
@@ -14,9 +14,10 @@ const FooterBtn = ({icon, text, to}) => {
 			_focus={{
 				bg: 'pink.700',
 			}}
-			activeStyle={{bg: 'pink.700'}}
+			activeStyle={{border: '5px solid green'}}
 			to={to}
 			p="2"
+			flex="1"
 			display="flex"
 			justify="center"
 			flexDirection="column"
@@ -43,7 +44,7 @@ const Footer = ({toggleFooter}) => {
 	]
 
 	return (
-		<Grid
+		<Flex
 			bg="pink.500"
 			position="fixed"
 			bottom="0"
@@ -51,12 +52,11 @@ const Footer = ({toggleFooter}) => {
 			maxWidth="768px"
 			width="100%"
 			overflow="hidden"
-			templateColumns="repeat(4, 1fr)"
 		>
 			{buttons.map(({icon, text, to}) => (
 				<FooterBtn key={text} icon={icon} text={text} to={to} />
 			))}
-		</Grid>
+		</Flex>
 	)
 }
 

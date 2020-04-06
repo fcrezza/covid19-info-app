@@ -15,7 +15,7 @@ const App = () => {
 	const [toggleFooter, setToggleFooter] = useState(false)
 
 	const handleToggleFooter = () => {
-		setToggleFooter(prevState => !prevState)
+		setToggleFooter((prevState) => !prevState)
 	}
 
 	return (
@@ -24,7 +24,8 @@ const App = () => {
 				<Flex
 					direction="column"
 					height={'calc(100vh - (32px+40px))'}
-					px={{base: '4', md: '6', lg: '0'}}
+					px={{base: '4', md: '6'}}
+					minHeight="500px"
 				>
 					<Header />
 					<Switch>
