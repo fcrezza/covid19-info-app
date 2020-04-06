@@ -14,7 +14,6 @@ const FooterBtn = ({icon, text, to}) => {
 			_focus={{
 				bg: 'pink.700',
 			}}
-			activeStyle={{border: '5px solid green'}}
 			to={to}
 			p="2"
 			flex="1"

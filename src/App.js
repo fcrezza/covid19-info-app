@@ -23,7 +23,7 @@ const App = () => {
 			<Box width="100%" maxWidth="768px" minHeight="100vh" mx="auto" pt="8">
 				<Flex
 					direction="column"
-					height={'calc(100vh - (32px+40px))'}
+					height={'calc(100vh - (32px + 40px))'}
 					px={{base: '4', md: '6'}}
 					minHeight="500px"
 				>
