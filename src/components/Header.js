@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import {Flex, Icon, IconButton, Code, useColorMode} from '@chakra-ui/core'
 import {FaMoon, FaRegSun} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
@@ -33,4 +33,4 @@ function Header() {
 	)
 }
 
-export default Header
+export default memo(Header)

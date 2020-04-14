@@ -1,4 +1,4 @@
-import React, {Suspense, useState} from 'react'
+import React, {Suspense, useCallback, useState} from 'react'
 import {Box, Flex} from '@chakra-ui/core'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
@@ -16,9 +16,9 @@ import Loader from './components/Loader'
 function App() {
 	const [toggleFooter, setToggleFooter] = useState(false)
 
-	const handleToggleFooter = () => {
+	const handleToggleFooter = useCallback(() => {
 		setToggleFooter((prevState) => !prevState)
-	}
+	}, [])
 
 	return (
 		<Router>

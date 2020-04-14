@@ -2,7 +2,9 @@ import React, {useState} from 'react'
 import {Box, Flex, Input, Grid, Text, useColorMode} from '@chakra-ui/core'
 import {Link} from 'react-router-dom'
 import ReactCountryFlag from 'react-country-flag'
+import InfiniteScroll from 'react-infinite-scroller'
 
+import useInfiniteScroll from '../hooks/useInfiniteScroll'
 import {useGetData} from '../hooks/useFetchData'
 import Title from '../components/Title'
 import Subtitle from '../components/Subtitle'
@@ -21,6 +23,7 @@ function CountryLink({to, countryCode, countryName}) {
 			as={Link}
 			to={to}
 			rounded="md"
+			height="auto"
 		>
 			{countryCode ? (
 				<ReactCountryFlag
@@ -29,7 +32,12 @@ function CountryLink({to, countryCode, countryName}) {
 					svg
 				/>
 			) : null}
-			<Text ml="2" color={textColor[colorMode]}>
+			<Text
+				ml="2"
+				whiteSpace="nowrap"
+				overflow="auto"
+				color={textColor[colorMode]}
+			>
 				{countryName}
 			</Text>
 		</Flex>
@@ -39,6 +47,10 @@ function CountryLink({to, countryCode, countryName}) {
 function Search({handleToggleFooter}) {
 	const [country, setCountry] = useState('')
 	const {data} = useGetData('countries')
+	const {hasMore, count, loadMore} = useInfiniteScroll(
+		37,
+		data.countries.length,
+	)
 
 	const filteredCountries = country
 		? data.countries.filter(
@@ -60,16 +72,22 @@ function Search({handleToggleFooter}) {
 				placeholder="Cari negara..."
 				my="6"
 			/>
-			<Grid gap="4" templateColumns={['repeat(2, 1fr)', 'repeat(3, 1fr)']}>
-				{filteredCountries.map(({name, iso2}) => (
-					<CountryLink
-						key={name}
-						countryCode={iso2}
-						countryName={name}
-						to={(location) => `${location.pathname}/${iso2}`}
-					/>
-				))}
-			</Grid>
+			<InfiniteScroll loadMore={loadMore} hasMore={hasMore}>
+				<Grid
+					gap="4"
+					overflowX="hidden"
+					templateColumns={['repeat(2, 50%)', 'repeat(3, 33.33%)']}
+				>
+					{filteredCountries.slice(0, count).map(({name, iso2}) => (
+						<CountryLink
+							key={name}
+							countryCode={iso2}
+							countryName={name}
+							to={(location) => `${location.pathname}/${iso2}`}
+						/>
+					))}
+				</Grid>
+			</InfiniteScroll>
 		</Box>
 	)
 }
