@@ -19,13 +19,13 @@
 ## Install
 
 ```sh
-npm install
+yarn
 ```
 
 ## Usage
 
 ```sh
-npm run start
+yarn start
 ```
 
 ## Author
