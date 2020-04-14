@@ -7,11 +7,13 @@ const endpoint = {
 }
 
 export const useGetData = (param = '', choice) => {
-	const {data, error} = useSWR(endpoint.data + param, fetchData)
+	const {data, error} = useSWR(endpoint.data + param, fetchData, {
+		suspense: true,
+	})
 	return {data, error}
 }
 
 export const useGetNews = () => {
-	const {data, error} = useSWR(endpoint.news, fetchNews)
+	const {data, error} = useSWR(endpoint.news, fetchNews, {suspense: true})
 	return {data, error}
 }

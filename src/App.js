@@ -1,17 +1,19 @@
-import React, {useState} from 'react'
+import React, {Suspense, useState} from 'react'
 import {Box, Flex} from '@chakra-ui/core'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-import Header from './components/Header'
-import Home from './components/Home'
-import Cari from './components/Cari'
-import SpesificCountry from './components/SpesificCountry'
-import News from './components/News'
-import Info from './components/Info'
-import NotFound from './components/NotFound'
+import Home from './page/Home'
+import Search from './page/Search'
+import SpesificCountry from './page/SpesificCountry'
+import News from './page/News'
+import Info from './page/Info'
+import NotFound from './page/NotFound'
 import Footer from './components/Footer'
+import Header from './components/Header'
+import ErrorBoundary from './components/ErrorBoundary'
+import Loader from './components/Loader'
 
-const App = () => {
+function App() {
 	const [toggleFooter, setToggleFooter] = useState(false)
 
 	const handleToggleFooter = () => {
@@ -30,16 +32,32 @@ const App = () => {
 					<Header />
 					<Switch>
 						<Route path="/" exact>
-							<Home />
+							<ErrorBoundary>
+								<Suspense fallback={<Loader />}>
+									<Home />
+								</Suspense>
+							</ErrorBoundary>
 						</Route>
 						<Route path="/cari" exact>
-							<Cari handleToggleFooter={handleToggleFooter} />
+							<ErrorBoundary>
+								<Suspense fallback={<Loader />}>
+									<Search handleToggleFooter={handleToggleFooter} />
+								</Suspense>
+							</ErrorBoundary>
 						</Route>
 						<Route path="/cari/:id">
-							<SpesificCountry />
+							<ErrorBoundary>
+								<Suspense fallback={<Loader />}>
+									<SpesificCountry />
+								</Suspense>
+							</ErrorBoundary>
 						</Route>
 						<Route path="/berita">
-							<News />
+							<ErrorBoundary>
+								<Suspense fallback={<Loader />}>
+									<News />
+								</Suspense>
+							</ErrorBoundary>
 						</Route>
 						<Route path="/info">
 							<Info />
