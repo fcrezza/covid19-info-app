@@ -3,7 +3,7 @@ import {Box, Flex, Text, useColorMode, PseudoBox} from '@chakra-ui/core'
 import {NavLink, useLocation} from 'react-router-dom'
 import {FaHome, FaSearch, FaInfoCircle, FaRegNewspaper} from 'react-icons/fa'
 
-const FooterBtn = ({icon, text, to, pathname}) => {
+function FooterBtn({icon, text, to, pathname}) {
 	const {colorMode} = useColorMode()
 	const color = {light: 'gray.100', dark: 'gray.200'}
 	const bgColor = pathname === to ? 'pink.700' : 'pink.500'
@@ -36,10 +36,10 @@ const FooterBtn = ({icon, text, to, pathname}) => {
 	)
 }
 
-const Footer = ({toggleFooter, ...rest}) => {
+function Footer({toggleFooter, ...rest}) {
 	const {pathname} = useLocation()
-console.log(useLocation())
-	const buttons = [
+
+	const buttonProperties = [
 		{icon: FaHome, text: 'Home', to: '/'},
 		{icon: FaSearch, text: 'Cari', to: '/cari'},
 		{icon: FaRegNewspaper, text: 'Berita', to: '/berita'},
@@ -55,8 +55,14 @@ console.log(useLocation())
 			width="100%"
 			overflow="hidden"
 		>
-			{buttons.map(({icon, text, to}) => (
-				<FooterBtn key={text} pathname={pathname} icon={icon} text={text} to={to} />
+			{buttonProperties.map(({icon, text, to}) => (
+				<FooterBtn
+					key={text}
+					pathname={pathname}
+					icon={icon}
+					text={text}
+					to={to}
+				/>
 			))}
 		</Flex>
 	)

@@ -2,7 +2,7 @@ import React from 'react'
 import numeral from 'numeral'
 import {Flex, Heading, Text, useColorMode} from '@chakra-ui/core'
 
-const Item = ({jumlah, text, color}) => {
+function Item({jumlah, text, color}) {
 	const {colorMode} = useColorMode()
 	const textColor = {light: 'gray.600', dark: 'gray.300'}
 	const bgColor = {light: 'green.50', dark: 'gray.700'}

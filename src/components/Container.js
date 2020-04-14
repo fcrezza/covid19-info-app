@@ -1,9 +1,7 @@
 import React from 'react'
 import {Flex} from '@chakra-ui/core'
 
-import Title from './Title'
-
-const NotFound = () => {
+function Container({children}) {
 	return (
 		<Flex
 			flex="1"
@@ -13,9 +11,9 @@ const NotFound = () => {
 			textAlign="center"
 			mt="-20vh"
 		>
-			<Title>404 Not found</Title>
+			{children}
 		</Flex>
 	)
 }
 
-export default NotFound
+export default Container
