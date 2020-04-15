@@ -6,7 +6,9 @@ function useInfiniteScroll(incrementNum, maxItems) {
 
 	const loadMore = () => {
 		if (incrementNum + count <= maxItems) {
-			setCount((prevCount) => prevCount + incrementNum)
+			setTimeout(() => {
+				setCount((prevCount) => prevCount + incrementNum)
+			}, 500)
 		} else {
 			setHasMore(false)
 		}

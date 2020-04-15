@@ -20,14 +20,27 @@ function App() {
 		setToggleFooter((prevState) => !prevState)
 	}, [])
 
+	const boxHeight = toggleFooter
+		? 'calc(100vh - 32px)'
+		: ['calc(100vh - (32px + 64px))', 'calc(100vh - (32px + 67px))']
+
 	return (
 		<Router>
-			<Box width="100%" maxWidth="768px" minHeight="100vh" mx="auto" pt="8">
+			<Box
+				width="100%"
+				maxWidth="768px"
+				minHeight={boxHeight}
+				overflow="hidden"
+				mx="auto"
+				pt="8"
+			>
 				<Flex
+					overflowY="auto"
 					direction="column"
-					height={'calc(100vh - (32px + 40px))'}
+					height={boxHeight}
 					px={{base: '4', md: '6'}}
 					minHeight="500px"
+					id="parent-scroll"
 				>
 					<Header />
 					<Switch>

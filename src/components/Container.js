@@ -9,7 +9,7 @@ function Container({children}) {
 			direction="column"
 			justify="center"
 			textAlign="center"
-			mt="-20vh"
+			mt="-10vh"
 		>
 			{children}
 		</Flex>
