@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {memo, useState} from 'react'
 import {Box, Flex, Input, Grid, Text, useColorMode} from '@chakra-ui/core'
 import {Link} from 'react-router-dom'
 import ReactCountryFlag from 'react-country-flag'
@@ -91,4 +91,4 @@ function Search({handleToggleFooter}) {
 	)
 }
 
-export default Search
+export default memo(Search)
