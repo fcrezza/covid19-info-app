@@ -1,18 +1,19 @@
 import React, {memo, useState} from 'react'
 import {Box, Flex, Input, Grid, Text, useColorMode} from '@chakra-ui/core'
 import {Link} from 'react-router-dom'
-import ReactCountryFlag from 'react-country-flag'
 import InfiniteScroll from 'react-infinite-scroller'
 
 import useInfiniteScroll from '../hooks/useInfiniteScroll'
 import {useGetData} from '../hooks/useFetchData'
 import Title from '../components/Title'
 import Subtitle from '../components/Subtitle'
+import countryCodeToEmoji from '../utils/countryCodeToEmoji'
 
-function CountryLink({to, countryCode, countryName}) {
+function CountryLink({to, countryCode = '', countryName}) {
 	const {colorMode} = useColorMode()
 	const textColor = {light: 'gray.600', dark: 'gray.300'}
 	const bgColor = {light: 'green.50', dark: 'gray.700'}
+	const emoji = countryCodeToEmoji(countryCode)
 
 	return (
 		<Flex
@@ -25,13 +26,7 @@ function CountryLink({to, countryCode, countryName}) {
 			rounded="md"
 			height="auto"
 		>
-			{countryCode ? (
-				<ReactCountryFlag
-					countryCode={countryCode}
-					aria-label={`${countryName} flag`}
-					svg
-				/>
-			) : null}
+			{emoji}
 			<Text
 				ml="2"
 				whiteSpace="nowrap"
@@ -59,7 +54,7 @@ function Search({handleToggleFooter}) {
 		  )
 		: data.countries
 	return (
-		<Box my="24" textAlign="center">
+		<Box mt="24" textAlign="center">
 			<Title>cari</Title>
 			<Subtitle>Lihat kasus di suatu negara</Subtitle>
 			<Input
@@ -71,10 +66,11 @@ function Search({handleToggleFooter}) {
 				placeholder="Cari negara..."
 				my="6"
 			/>
-			<InfiniteScroll threshold={0} loadMore={loadMore} hasMore={hasMore}>
+			<InfiniteScroll threshold={100} loadMore={loadMore} hasMore={hasMore}>
 				<Grid
 					gap="4"
 					overflowX="hidden"
+					mb="24"
 					templateColumns={['repeat(2, 48%)', 'repeat(3, 32%)']}
 				>
 					{filteredCountries.slice(0, count).map(({name, iso2}) => (

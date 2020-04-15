@@ -15,7 +15,6 @@
     "numeral": "^2.0.6",
     "prettier": "^2.0.2",
     "react": "^16.13.1",
-    "react-country-flag": "^2.0.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.9.0",
     "react-infinite-scroller": "^1.2.4",

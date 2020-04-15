@@ -1,7 +1,6 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import {useParams} from 'react-router-dom'
-import ReactCountryFlag from 'react-country-flag'
 import {Text, Grid} from '@chakra-ui/core'
 
 import {useGetData} from '../hooks/useFetchData'
@@ -9,6 +8,7 @@ import Item from '../components/Item'
 import Title from '../components/Title'
 import Subtitle from '../components/Subtitle'
 import Container from '../components/Container'
+import countryCodeToEmoji from '../utils/countryCodeToEmoji'
 
 function SpesificCounty() {
 	const {id} = useParams()
@@ -34,10 +34,11 @@ function SpesificCounty() {
 			{text: 'sembuh', jumlah: recovered.value, color: 'green.500'},
 			{text: 'meninggal', jumlah: deaths.value, color: 'red.500'},
 		]
+		const emoji = countryCodeToEmoji(id)
 
 		return (
 			<Container>
-				<ReactCountryFlag countryCode={id} aria-label={`${name} flag`} />
+				{emoji}
 				<Title>{name}</Title>
 				<Subtitle>
 					Terakhir diperbarui {date} pada {time} WIB

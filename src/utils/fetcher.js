@@ -1,9 +1,9 @@
-export const fetchData = (url) => {
+export function fetchData(url) {
 	const data = fetch(url).then((res) => res.json())
 	return data
 }
 
-export const fetchNews = (url) => {
+export function fetchNews(url) {
 	const data = fetch(url, {
 		headers: {
 			'X-Api-Key': process.env.REACT_APP_NEWS_KEY,

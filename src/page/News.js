@@ -34,10 +34,10 @@ function News() {
 	const {hasMore, count, loadMore} = useInfiniteScroll(10, data.articles.length)
 
 	return (
-		<Box textAlign="center" my="24">
+		<Box textAlign="center" mt="24">
 			<Title>update Covid-19</Title>
-			<Box mt="10">
-				<InfiniteScroll loadMore={loadMore} hasMore={hasMore} threshold={0}>
+			<Box mt="10" mb="24">
+				<InfiniteScroll loadMore={loadMore} hasMore={hasMore} threshold={100}>
 					{data.articles
 						.slice(0, count)
 						.map(({source, title, url, content}) => (
