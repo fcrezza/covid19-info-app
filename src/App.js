@@ -26,21 +26,12 @@ function App() {
 
 	return (
 		<Router>
-			<Box
-				width="100%"
-				maxWidth="768px"
-				minHeight={boxHeight}
-				overflow="hidden"
-				mx="auto"
-				pt="8"
-			>
+			<Box width="100%" maxWidth="768px" minHeight={boxHeight} mx="auto" pt="8">
 				<Flex
-					overflowY="auto"
 					direction="column"
 					height={boxHeight}
-					px={{base: '4', md: '6'}}
 					minHeight="500px"
-					id="parent-scroll"
+					px={{base: '4', md: '6'}}
 				>
 					<Header />
 					<Switch>

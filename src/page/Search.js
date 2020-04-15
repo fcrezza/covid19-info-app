@@ -58,9 +58,8 @@ function Search({handleToggleFooter}) {
 					name.toLowerCase().slice(0, country.length) === country.toLowerCase(),
 		  )
 		: data.countries
-	const parentScroll = document.getElementById('parent-scroll')
 	return (
-		<Box mt="24" mb="8" textAlign="center">
+		<Box my="24" textAlign="center">
 			<Title>cari</Title>
 			<Subtitle>Lihat kasus di suatu negara</Subtitle>
 			<Input
@@ -72,13 +71,7 @@ function Search({handleToggleFooter}) {
 				placeholder="Cari negara..."
 				my="6"
 			/>
-			<InfiniteScroll
-				threshold={0}
-				useWindow={false}
-				getScrollParent={() => parentScroll}
-				loadMore={loadMore}
-				hasMore={hasMore}
-			>
+			<InfiniteScroll threshold={0} loadMore={loadMore} hasMore={hasMore}>
 				<Grid
 					gap="4"
 					overflowX="hidden"

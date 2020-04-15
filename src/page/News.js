@@ -5,7 +5,6 @@ import InfiniteScroll from 'react-infinite-scroller'
 import {useGetNews} from '../hooks/useFetchData'
 import useInfiniteScroll from '../hooks/useInfiniteScroll'
 import Title from '../components/Title'
-import Loader from '../components/Loader'
 
 function NewsItem({source, title, url, content}) {
 	const {colorMode} = useColorMode()
@@ -34,18 +33,11 @@ function News() {
 	const {data} = useGetNews()
 	const {hasMore, count, loadMore} = useInfiniteScroll(10, data.articles.length)
 
-	const parentScroll = document.getElementById('parent-scroll')
 	return (
-		<Box textAlign="center" mt="24" mb="8">
+		<Box textAlign="center" my="24">
 			<Title>update Covid-19</Title>
 			<Box mt="10">
-				<InfiniteScroll
-					useWindow={false}
-					getScrollParent={() => parentScroll}
-					loadMore={loadMore}
-					hasMore={hasMore}
-					threshold={0}
-				>
+				<InfiniteScroll loadMore={loadMore} hasMore={hasMore} threshold={0}>
 					{data.articles
 						.slice(0, count)
 						.map(({source, title, url, content}) => (
