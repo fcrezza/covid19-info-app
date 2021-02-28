@@ -1,17 +1,32 @@
 import React from 'react'
+import {Route, BrowserRouter, Switch} from 'react-router-dom'
 
+import Home from './pages/home'
+import Check from './pages/check'
+import Notfound from './pages/notfound'
+
+import Layout from './components/Layout'
 import Header from './components/Header'
-import Corona from './components/Corona'
-import Preventions from './components/Preventions'
 
 function App() {
-	return (
-		<div>
-			<Header />
-			<Corona />
-			<Preventions />
-		</div>
-	)
+  return (
+    <BrowserRouter>
+      <Layout>
+        <Header />
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/check" exact>
+            <Check />
+          </Route>
+          <Route>
+            <Notfound />
+          </Route>
+        </Switch>
+      </Layout>
+    </BrowserRouter>
+  )
 }
 
 export default App

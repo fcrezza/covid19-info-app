@@ -1,19 +1,17 @@
 import React from 'react'
 import {render} from 'react-dom'
-import {ThemeProvider, Global} from './utils/theme'
-import 'typeface-source-sans-pro'
+import 'typeface-inter'
+import 'normalize.css'
 
 import App from './app'
 import * as serviceWorker from './serviceWorker'
+import './utils/styles/global.scss'
 
 render(
-	<React.StrictMode>
-		<ThemeProvider>
-			<Global />
-			<App />
-		</ThemeProvider>
-	</React.StrictMode>,
-	document.getElementById('root'),
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root'),
 )
 
 serviceWorker.unregister()

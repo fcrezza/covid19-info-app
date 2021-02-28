@@ -1,0 +1,119 @@
+@import '../../utils/styles/variables';
+
+.headingContainer {
+  text-align: center;
+  margin-top: 5rem;
+}
+.headingTitle {
+  font-weight: 900;
+  text-transform: capitalize;
+  color: $widesky;
+  font-size: 3rem;
+  margin: 0 0 2rem;
+}
+
+.headingDescription {
+  color: $davisgrey;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  margin: 0 0 2rem;
+}
+
+.campaignLink {
+  display: inline-block;
+  color: $white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  background-color: $widesky;
+  border-radius: 10px;
+  padding: 1rem 1.4rem;
+  text-transform: capitalize;
+
+  &:hover,
+  &:focus {
+    background-color: darken($widesky, 5);
+  }
+}
+
+.campaignLinkOutline {
+  display: inline-block;
+  color: $white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid $white;
+  border-radius: 10px;
+  padding: 1rem 1.4rem;
+  text-transform: capitalize;
+
+  &:hover,
+  &:focus {
+    background-color: darken($widesky, 5);
+  }
+}
+
+.preventionContainer {
+  margin-top: 100px;
+}
+
+.preventionTitle {
+  color: $widesky;
+  text-transform: capitalize;
+  margin: 0;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.preventionItemContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.preventionItem {
+  padding: 1.5rem;
+  width: calc(50% - 1.25rem);
+  background-color: $diamondwhite;
+  border-radius: 20px;
+
+  &:nth-child(even) {
+    margin-left: 2.5rem;
+  }
+
+  &:nth-child(2n + 3),
+  &:nth-child(2n + 4) {
+    margin-top: 2.5rem;
+  }
+}
+
+.preventionItemTitle {
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+  color: $carbon;
+}
+
+.preventionItemDescription {
+  font-size: 1rem;
+  line-height: 30px;
+  color: $davisgrey;
+  margin: 0;
+}
+
+.campaignContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $widesky;
+  margin-top: 100px;
+  padding: 2rem;
+}
+
+.campaignMessage {
+  color: $white;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0;
+}
