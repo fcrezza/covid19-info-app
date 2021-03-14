@@ -11,6 +11,14 @@
   color: $widesky;
   text-align: center;
   text-transform: capitalize;
+
+  @media (max-width: 800px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.2rem;
+  }
 }
 
 .globalCaseTimestamp {
@@ -18,10 +26,18 @@
   margin: 0 0 2rem;
   font-size: 1rem;
   text-align: center;
+
+  @media (max-width: 480px) {
+    line-height: 30px;
+  }
 }
 
 .globalCaseStatsContainer {
   display: flex;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 }
 
 .globalCaseStatsItem {
@@ -45,14 +61,27 @@
   &:not(:first-child) {
     margin-left: 2rem;
   }
+
+  @media (max-width: 480px) {
+    &:not(:first-child) {
+      margin: 1rem 0 0;
+    }
+  }
 }
 
 .globalCaseStatsText {
   color: $davisgrey;
   margin: 0;
   font-size: 1.2rem;
-}
+  line-height: 30px;
 
+
+  @media (max-width: 480px) {
+    &:not(:first-child) {
+      font-size: 1.1rem;
+    }
+  }
+}
 .countryCaseContainer {
   margin-top: 5rem;
 }
@@ -70,6 +99,10 @@
 .countryCaseTitle {
   color: $widesky;
   font-size: 2rem;
+
+  @media (max-width: 480px) {
+    font-size: 1.7rem;
+  }
 }
 
 .countryCaseTimestamp {
@@ -77,12 +110,18 @@
   margin: 0 0 2rem;
   font-size: 1rem;
   text-align: center;
+  line-height: 30px;
 }
 
 .countryCaseStatsContainer {
   display: flex;
   justify-content: center;
   margin: 3rem;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    margin: 3rem 0;
+  }
 }
 
 .countryCaseStatsItem {
@@ -113,6 +152,14 @@
       background-color: $informativepink;
     }
   }
+
+  @media (max-width: 480px) {
+    width: 100%;
+
+    &:not(:first-child) {
+      margin: 2rem 0 0 ;
+    }
+  }
 }
 
 .countryCaseStatsItemMark {
@@ -141,7 +188,8 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
 }
 

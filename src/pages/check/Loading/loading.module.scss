@@ -1,4 +1,8 @@
+@import '../../../styles/variables';
+
 .loading {
   text-align: center;
   margin-top: 5rem;
+  color: $davisgrey;
+  font-size: 1rem;
 }
