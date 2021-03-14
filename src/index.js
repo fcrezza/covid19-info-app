@@ -5,7 +5,7 @@ import 'normalize.css'
 
 import App from './app'
 import * as serviceWorker from './serviceWorker'
-import './utils/styles/global.scss'
+import './styles/global.scss'
 
 render(
   <React.StrictMode>

@@ -35,7 +35,9 @@ function Home() {
           Tetap jaga kesehatan dan Selalu update dengan perkembangan data kasus
           COVID-19 diseluruh dunia
         </p>
-        <Link className={styles.campaignLink}>cek data terbaru</Link>
+        <Link className={styles.campaignLink} to="/check">
+          cek data terbaru
+        </Link>
       </div>
       <div className={styles.preventionContainer}>
         <h2 className={styles.preventionTitle}>
@@ -55,7 +57,9 @@ function Home() {
         <p className={styles.campaignMessage}>
           cek data terbaru sekarang juga!
         </p>
-        <Link className={styles.campaignLinkOutline}>cek data terbaru</Link>
+        <Link className={styles.campaignLinkOutline} to="/check">
+          cek data terbaru
+        </Link>
       </div>
     </>
   )
